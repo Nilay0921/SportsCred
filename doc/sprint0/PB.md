@@ -89,7 +89,7 @@ These user stories are listed in order of priority
     * Estimate: 3
 11. Notifications
     * Description: 
-    As a user, Peter would like to be notified if he has/will miss anything on the app (e.g. unread reply to his posts/comments, unanswered debate question, trivia battle invitation, upcoming picks deadlines, picks results)so that he can act accordingly.
+    As a user, Peter would like to be notified if he has/will miss anything on the app (e.g. unread reply to his posts/comments, unanswered debate question, trivia battle invitation, upcoming picks deadlines, picks results) so that he can act accordingly.
 
 
     * Acceptance Criteria: 
