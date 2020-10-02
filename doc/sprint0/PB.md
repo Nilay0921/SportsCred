@@ -89,10 +89,12 @@ These user stories are listed in order of priority
     * Estimate: 3
 11. Notifications
     * Description: 
-    As a user, Peter/Thomas wants to share posts from other social platforms and view the posts of others so that he can be updated on the latest posts from other platforms as well.
+    As a user, Peter would like to be notified if he has/will miss anything on the app (e.g. unread reply to his posts/comments, unanswered debate question, trivia battle invitation, upcoming picks deadlines, picks results)so that he can act accordingly.
+
 
     * Acceptance Criteria: 
-    Given that I am a registered and logged-in user, when I am on the discussion page, then I can see shared posts of others, and share my own with the option of adding tags so that my posts can be easily found and referred to at a later date.
+    Given that I am a logged-in user, when I am not on the app, then I will receive periodic notifications informing me about replies to posts, results from picks, and invites to trivia.
+
     * Priority: Low
     * Estimate: 3
 12. Share Posts
