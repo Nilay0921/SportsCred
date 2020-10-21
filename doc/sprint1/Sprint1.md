@@ -8,8 +8,11 @@ Our meeting was held on Saturday, 10/10/2020  All team members participated. Par
 * Sameer Khan [khans295]
 
 Meeting/sprint goal: Complete user stories 4, 8 and 9.
+
 Team capacity: 9
+
 Tasks Breakdown:
+
 SYS-4
 * Create view for changing profile details (Naomi)
 * Update database when profile details are changed (Malhar)
