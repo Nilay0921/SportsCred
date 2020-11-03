@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sportcred/UI/Profile/profilePage.dart';
+import 'package:sportcred/UI/Profile/ProfilePage.dart';
 import 'package:sportcred/UI/TheZone/TheZonePage.dart';
 import 'models/global.dart';
 

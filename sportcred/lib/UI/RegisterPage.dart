@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sportcred/BottomNavigation.dart';
-import 'package:sportcred/UI/RegisterPage.dart';
+import 'package:sportcred/UI/LoginPage.dart';
+import 'package:sportcred/UI/QuestionnairePage.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +20,52 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 20, 50),
+              margin: EdgeInsets.fromLTRB(20, 0, 20, 30),
               child: Image(
                 image: new AssetImage('assets/images/Logo.png')
               ),
             ),
+            Expanded(
+              child: SizedBox(
+                height: 50,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 140,
+                      child: TextField(
+                        obscureText: false,
+                        style: TextStyle(color: Colors.white),
+                        decoration: new InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          labelText: 'First Name',
+                          labelStyle: TextStyle(color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                          focusedBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 140,
+                      child: TextField(
+                        obscureText: false,
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                          labelText: 'Last Name',
+                          labelStyle: TextStyle(color: Colors.white),
+                          enabledBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                          focusedBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              )
+            ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: TextField(
                 obscureText: false,
                 style: TextStyle(color: Colors.white),
@@ -40,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: TextField(
                 obscureText: true,
                 style: TextStyle(color: Colors.white),
@@ -54,35 +93,41 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(177, 0, 0, 225),
-              child: TextButton(
-                onPressed: null,
-                child: Text('Forgot Password',
-                    style: TextStyle(color: Colors.grey)),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+              child: TextField(
+                obscureText: true,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                  labelText: 'Confirm Password',
+                  labelStyle: TextStyle(color: Colors.white),
+                  enabledBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                  focusedBorder: UnderlineInputBorder(borderSide: new BorderSide(color: Colors.white)),
+                ),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('New to SportCred?', style: TextStyle(color: Colors.white)),
+                Text('Already a member?', style: TextStyle(color: Colors.white)),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => RegisterPage(),
+                        builder: (context) => LoginPage(),
                       ),
                     );
                   },
                   child: Text(
-                    'Register',
+                    'Login',
                     style: TextStyle(color: Color(0xff05FF00)),
                   ),
                 ),
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: 0, bottom: 20),
+              margin: EdgeInsets.only(top: 180, bottom: 20),
               child: RaisedButton(
                 color: Colors.transparent,
                 shape: RoundedRectangleBorder(
@@ -93,14 +138,14 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyHomePage(),
+                      builder: (context) => QuestionnairePage(),
                     ),
                   );
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(
                     vertical: 7.0,
-                    horizontal: 125.0
+                    horizontal: 112.0
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
@@ -113,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   child: const Text(
-                    'Login',
+                    'Register',
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
