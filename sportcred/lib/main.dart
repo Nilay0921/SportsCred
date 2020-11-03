@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sportcred/BottomNavigation.dart';
+import 'package:sportcred/UI/LoginPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF222629),
       ),
-      home: MyHomePage(),
+      home: LoginPage(),
     );
   }
 }
