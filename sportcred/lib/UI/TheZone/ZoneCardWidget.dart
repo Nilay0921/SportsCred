@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:sportcred/UI/Trivia/TriviaHome.dart';
 import 'package:sportcred/models/global.dart';
 
 class ZoneCardWidget extends StatelessWidget {
   final String title;
   final String img;
+  final String connection;
 
   const ZoneCardWidget(
-    {Key key, this.title, this.img}) : super(key: key);
-  
+    {Key key, this.title, this.img, this.connection}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return InkWell(
+      onTap: () {
+        if (connection == 'trivia') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaHome()));
+        }
+      },
+      child: Card(
       elevation: 0.0,
       color: Color(0x00000000),
       child: Padding(
@@ -45,6 +53,6 @@ class ZoneCardWidget extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
