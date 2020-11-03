@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Profile/ProfilePage.dart';
 import 'package:sportcred/UI/TheZone/TheZonePage.dart';
+import 'package:sportcred/UI/Profile/UpdateProfile.dart';
 import 'models/global.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _title = 'The Zone';
+  String _title = 'Home House';
   int _selectedIndex = 1;
 
 
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       switch(index) { 
         case 0: { _title = 'Profile'; } 
         break; 
-        case 1: { _title = 'The Zone'; } 
+        case 1: { _title = 'Home House'; } 
         break;
         case 2: { _title = 'Live'; } 
         break;
@@ -56,6 +57,26 @@ class _MyHomePageState extends State<MyHomePage> {
               fontSize: 20),
         ),
         centerTitle: true,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }
+          ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProfile()));
+            }
+          )
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -69,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.sports),
-            label: 'The Zone',
+            label: 'Home House',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.live_tv_rounded),

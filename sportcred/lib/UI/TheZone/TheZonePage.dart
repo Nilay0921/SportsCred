@@ -20,7 +20,7 @@ class TheZonePage extends StatelessWidget{
                 padding: EdgeInsets.only(top:30.0),
                 children: <Widget>[
                   ZoneCardWidget(
-                    title: 'Open Court',
+                    title: 'The Zone',
                     img: 'assets/images/openCourt.png'
                   ),
                   ZoneCardWidget(

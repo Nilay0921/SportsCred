@@ -17,19 +17,6 @@ class _ProfilePageState extends State<ProfilePage>{
   Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Color(0xFF2b2b29),
-      appBar: AppBar(
-        backgroundColor: AppTheme.backgroundGray,
-        // connect to UpdateProfile in another way, as this provides a double 'header'
-        leading: IconButton(
-        icon: Icon(
-          Icons.more_vert,
-          color: Colors.white,
-        ),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProfile()));
-            }
-        ),
-    ),
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[
@@ -42,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage>{
                     backgroundColor: Color(0xFF000000),
                     child: CircleAvatar(
                       radius: 60,
-                      backgroundImage: AssetImage('assets/images/spiritBlossomTeemoPrestige.png'),
+                      backgroundImage: AssetImage('assets/images/placeholder.png'),
                     )
                   ),
                 ),
