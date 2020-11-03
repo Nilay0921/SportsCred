@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/BottomNavigation.dart';
+import 'package:sportcred/UI/ForgotPWPage.dart';
 import 'package:sportcred/UI/RegisterPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,7 +57,14 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               margin: EdgeInsets.fromLTRB(177, 0, 0, 225),
               child: TextButton(
-                onPressed: null,
+                onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPWPage(),
+                      ),
+                    );
+                  },
                 child: Text('Forgot Password',
                     style: TextStyle(color: Colors.grey)),
               ),
