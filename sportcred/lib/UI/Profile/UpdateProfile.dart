@@ -34,7 +34,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
               color: Colors.green,
             ),
             onPressed: () {
-              Navigator.pop(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+              Navigator.pop(context);
             }
         ),
         actions: [
@@ -176,7 +176,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
 
                 onPressed: () {
                   //if (_formKey.currentState.validate()) {}
-                  Navigator.pop(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                  Navigator.pop(context);
                 }
             )
           ],
