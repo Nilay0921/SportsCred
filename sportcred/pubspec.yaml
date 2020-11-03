@@ -52,6 +52,9 @@ flutter:
    - assets/images/picks.png
    - assets/images/trivia.png
    - assets/images/analyze.png
+   - assets/images/soloPlayer.jpg
+   - assets/images/jumpBall.jpg
+   - assets/images/logo_centered_darkbg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

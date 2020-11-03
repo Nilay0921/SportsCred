@@ -29,7 +29,8 @@ class TheZonePage extends StatelessWidget{
                   ),
                   ZoneCardWidget(
                     title: 'Trivia',
-                    img: 'assets/images/trivia.png'
+                    img: 'assets/images/trivia.png',
+                    connection: 'trivia'
                   ),
                   ZoneCardWidget(
                     title: 'Analyze',

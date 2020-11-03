@@ -13,4 +13,10 @@ class AppTheme{
     fontWeight: FontWeight.w300
   );
 
+  static final TextStyle triviaText = new TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 30.0,
+    color: Colors.white,
+    fontWeight: FontWeight.w300
+  );
 }
