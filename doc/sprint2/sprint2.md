@@ -14,7 +14,7 @@ Team capacity: 8
 
 Tasks Breakdown:
 
-SYS-4
+SYS-1
 * Create a view for Trivia home page, which includes buttons for singleplayer and multiplayer trivia (Naomi)
 * Create a view for single player trivia, including timer, questions, answers, basic player info, etc. (Naomi)
 * Create a table in database and store all questions (Malhar)
