@@ -15,7 +15,7 @@ class TriviaCardWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (connection == 'solo') {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => dbConnection()));
         }
       },
       child: Card(
