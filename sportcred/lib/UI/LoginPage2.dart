@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'TheZone/OpenCourtPage.dart';
+import 'OpenCourt/OpenCourtPage.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({Key key}) : super(key: key);

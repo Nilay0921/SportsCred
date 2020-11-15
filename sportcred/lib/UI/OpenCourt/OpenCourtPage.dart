@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sportcred/models/global.dart';
-import 'package:sportcred/UI/TheZone/CourtCardWidget.dart';
+import 'package:sportcred/UI/OpenCourt/CourtCardWidget.dart';
 
 class OpenCourtPage extends StatelessWidget{
   @override

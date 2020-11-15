@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Profile/ProfilePage.dart';
-import 'package:sportcred/UI/TheZone/OpenCourtPage.dart';
+import 'package:sportcred/UI/OpenCourt/OpenCourtPage.dart';
 import 'package:sportcred/UI/Profile/UpdateProfile.dart';
 import 'models/global.dart';
 
