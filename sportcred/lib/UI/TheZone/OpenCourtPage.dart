@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:sportcred/models/global.dart';
-import 'package:sportcred/UI/TheZone/ZoneCardWidget.dart';
+import 'package:sportcred/UI/TheZone/CourtCardWidget.dart';
 
-class TheZonePage extends StatelessWidget{
+class OpenCourtPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -19,20 +19,20 @@ class TheZonePage extends StatelessWidget{
                 shrinkWrap: true,
                 padding: EdgeInsets.only(top:30.0),
                 children: <Widget>[
-                  ZoneCardWidget(
+                  CourtCardWidget(
                     title: 'The Zone',
                     img: 'assets/images/openCourt.png'
                   ),
-                  ZoneCardWidget(
+                  CourtCardWidget(
                     title: 'Picks',
                     img: 'assets/images/picks.png'
                   ),
-                  ZoneCardWidget(
+                  CourtCardWidget(
                     title: 'Trivia',
                     img: 'assets/images/trivia.png',
                     connection: 'trivia'
                   ),
-                  ZoneCardWidget(
+                  CourtCardWidget(
                     title: 'Analyze',
                     img: 'assets/images/analyze.png'
                   )

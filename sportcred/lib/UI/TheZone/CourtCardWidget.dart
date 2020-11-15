@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Trivia/TriviaHome.dart';
 import 'package:sportcred/models/global.dart';
 
-class ZoneCardWidget extends StatelessWidget {
+class CourtCardWidget extends StatelessWidget {
   final String title;
   final String img;
   final String connection;
 
-  const ZoneCardWidget(
+  const CourtCardWidget(
     {Key key, this.title, this.img, this.connection}) : super(key: key);
 
   @override
