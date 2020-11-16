@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'TheZone/TheZonePage.dart';
+import 'OpenCourt/OpenCourtPage.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({Key key}) : super(key: key);
@@ -116,8 +116,8 @@ class _LoginPage2State extends State<LoginPage2> {
                   borderSide: BorderSide(color: Colors.white),
                   shape: StadiumBorder(),
                   onPressed: () {
-                    //Navigator.pushNamed(context, /theZone);
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => TheZonePage()));
+                    //Navigator.pushNamed(context, /openCourt);
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => OpenCourtPage()));
                   },
                 ),
                 OutlineButton(
