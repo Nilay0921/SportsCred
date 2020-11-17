@@ -8,22 +8,70 @@ class PostPage extends StatefulWidget {
 }
 
 class _PostPageState extends State<PostPage> {
-  String postUsername = "Firstname Lastname";
-  String postTitle =
+  String username = "Firstname Lastname";
+  String title =
       "A very long statement that actually is super long. Consider applying a flex factor to force the children";
-  String postDescription =
+  String desc =
       "Lots of text also belongs here because I think I should put a good number of characters to test how my app deals with it otherwise I'm sad";
+
   String dropdownValue = "Top";
 
- _PostPageState({this.postUsername, this.postTitle, this.postDescription}) {}
+  //_PostPageState({this.username, this.title, this.desc});
+
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
+  List<Widget> comments = [
+    CommentWidget(
+      username: "William Lee",
+      comment: "This is what I think in response to this post!",
+      score: "999",
+    ),
+    CommentWidget(
+      username: "Sameeer Khan",
+      comment: "Wow!",
+      score: "482",
+    ),
+    CommentWidget(
+      username: "Nick Sam",
+      comment:
+          "Long Statements are nice, and I'm testing whether long statements look good as a comment.",
+      score: "279",
+    ),
+    CommentWidget(
+      username: "Brian Li",
+      comment: "This page is scrollable.",
+      score: "111",
+    ),
+  ];
+
+  addComment(String comment) {
+    setState(() {
+      comments.add(new CommentWidget(
+        username: "Sameer Khan",
+        comment: comment,
+        score: "0",
+      ));
+    });
+  }
+
+  List<CommentWidget> getComments() {
+    return comments;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundGray,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
+      body: Container(
+        padding: EdgeInsets.only(top: 80.0, left: 20.0, right: 20.0),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Card(
@@ -39,13 +87,15 @@ class _PostPageState extends State<PostPage> {
                                 AssetImage("assets/images/empty user.png"),
                             radius: 20,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 15),
-                            child: Text(
-                              postUsername,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                          Align(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 15),
+                              child: Text(
+                                username,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           )
@@ -55,7 +105,7 @@ class _PostPageState extends State<PostPage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                       child: Text(
-                        postTitle,
+                        "$title",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -65,7 +115,7 @@ class _PostPageState extends State<PostPage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Text(
-                        postDescription,
+                        "$desc",
                         style: TextStyle(
                           fontSize: 13,
                         ),
@@ -77,7 +127,6 @@ class _PostPageState extends State<PostPage> {
                         IconButton(
                             icon: Icon(
                               Icons.arrow_upward_rounded,
-                              color: Colors.red,
                             ),
                             onPressed: null),
                         Text(
@@ -87,9 +136,8 @@ class _PostPageState extends State<PostPage> {
                         IconButton(
                           icon: Icon(
                             Icons.arrow_downward_rounded,
-                            color: Colors.blue,
                           ),
-                          onPressed: null
+                          onPressed: null,
                         )
                       ],
                     )
@@ -138,44 +186,74 @@ class _PostPageState extends State<PostPage> {
                   ],
                 ),
               ),
-              CommentWidget(
-                username: "William Lee",
-                comment: "This is what I think in response to this post!",
-                score: "999",
-              ),
-              CommentWidget(
-                username: "Sameeer Khan",
-                comment: "Wow!",
-                score: "482",
-              ),
-              CommentWidget(
-                username: "Nick Sam",
-                comment: "Long Statements are nice, and I'm testing whether long statements look good as a comment.",
-                score: "279",
-              ),
-               CommentWidget(
-                username: "Brian Li",
-                comment: "This page is scrollable.",
-                score: "111",
+              Column(
+                children: comments,
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
                 margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: TextField(
-                  obscureText: false,
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                    labelText: 'Add Comment',
-                    labelStyle: TextStyle(color: Colors.white),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(
+                      width: 230,
+                      child: TextField(
+                        controller: myController,
+                        obscureText: false,
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          labelText: 'Add Comment',
+                          labelStyle: TextStyle(color: Colors.white),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          isDense: true,
+                        ),
+                      ),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                    Container(
+                      height: 35,
+                      width: 52,
+                      child: RaisedButton(
+                        color: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        onPressed: () {
+                          addComment(myController.text);
+                          myController.text = "";
+                        },
+                        padding: EdgeInsets.all(0),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 7.0, horizontal: 10.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18),
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                Color(0xff228B22),
+                                Color(0xff2EB62C),
+                                Color(0xff83D475)
+                              ],
+                            ),
+                          ),
+                          child: const Text(
+                            'Add',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                    isDense: true,
-                  ),
+                  ],
                 ),
               ),
             ],
