@@ -21,7 +21,8 @@ class OpenCourtPage extends StatelessWidget{
                 children: <Widget>[
                   CourtCardWidget(
                     title: 'The Zone',
-                    img: 'assets/images/openCourt.png'
+                    img: 'assets/images/openCourt.png',
+                    connection: 'zone'
                   ),
                   CourtCardWidget(
                     title: 'Picks',

@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _title = 'Home House';
+  String _title = 'Home';
   int _selectedIndex = 1;
 
 
