@@ -9,15 +9,16 @@ class TriviaHome extends StatelessWidget{
     return Scaffold(
         backgroundColor: AppTheme.backgroundGray,
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
-              "Trivia",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'Lato',
-            fontSize: 20),
+            "Trivia",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Lato',
+              fontSize: 20
+            ),
           ),
-        centerTitle: true,
         ),
         body: Container(
             padding: EdgeInsets.all(20.0),
@@ -36,7 +37,8 @@ class TriviaHome extends StatelessWidget{
                         ),
                         TriviaCardWidget(
                             title: 'Head-to-head',
-                            img: 'assets/images/jumpBall.jpg'
+                            img: 'assets/images/jumpBall.jpg',
+                            connection: 'multi'
                         ),
                       ],
                     )
