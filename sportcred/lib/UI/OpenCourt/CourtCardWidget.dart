@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Trivia/TriviaHome.dart';
+import 'package:sportcred/UI/TheZone/TheZonePage.dart';
 import 'package:sportcred/models/global.dart';
 
-class ZoneCardWidget extends StatelessWidget {
+class CourtCardWidget extends StatelessWidget {
   final String title;
   final String img;
   final String connection;
 
-  const ZoneCardWidget(
+  const CourtCardWidget(
     {Key key, this.title, this.img, this.connection}) : super(key: key);
 
   @override
@@ -16,6 +17,8 @@ class ZoneCardWidget extends StatelessWidget {
       onTap: () {
         if (connection == 'trivia') {
           Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaHome()));
+        } else if (connection == 'zone'){ 
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TheZonePage()));
         }
       },
       child: Card(

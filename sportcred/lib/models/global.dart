@@ -13,6 +13,20 @@ class AppTheme{
     fontWeight: FontWeight.w300
   );
 
+  static final TextStyle postTitleText = new TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 18.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w600
+  );
+
+  static final TextStyle postDescText = new TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 13.0,
+    color: Colors.black,
+    fontWeight: FontWeight.w400
+  );
+
   static final TextStyle triviaText = new TextStyle(
     fontFamily: 'Lato',
     fontSize: 30.0,

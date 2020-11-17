@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Profile/ProfilePage.dart';
-import 'package:sportcred/UI/TheZone/TheZonePage.dart';
+import 'package:sportcred/UI/OpenCourt/OpenCourtPage.dart';
 import 'package:sportcred/UI/Profile/UpdateProfile.dart';
 import 'models/global.dart';
 
@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _title = 'Home House';
+  String _title = 'Home';
   int _selectedIndex = 1;
 
 
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.w300, color: Colors.white, fontFamily: 'Lato');
   static  List<Widget> _widgetOptions = <Widget>[
     ProfilePage(),
-    TheZonePage(),
+    OpenCourtPage(),
     Text(
       'Live Coming Soon!',
       style: optionStyle,
