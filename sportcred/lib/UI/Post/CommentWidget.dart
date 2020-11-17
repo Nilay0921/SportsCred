@@ -48,7 +48,7 @@ class CommentWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 80, 0),
+                padding: const EdgeInsets.fromLTRB(10, 0, 100, 0),
                 child: TextButton(
                   onPressed: null, 
                   child: Text(
@@ -63,11 +63,10 @@ class CommentWidget extends StatelessWidget {
                 size: 20,
               ),
               onPressed: null),
-              Text(score),
-              IconButton(
-                icon: Icon(Icons.arrow_downward_rounded, size: 20),
-                onPressed: null
-              )
+              Padding(
+                padding: const EdgeInsets.only(right: 15.0),
+                child: Text(score),
+              ),
             ],
           )
         ],
