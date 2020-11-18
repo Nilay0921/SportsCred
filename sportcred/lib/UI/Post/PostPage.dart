@@ -3,20 +3,27 @@ import 'package:sportcred/UI/Post/CommentWidget.dart';
 import 'package:sportcred/models/global.dart';
 
 class PostPage extends StatefulWidget {
+  final String username;
+  final String title;
+  final String desc;
+
+  PostPage({this.username, this.title, this.desc});
+
   @override
-  _PostPageState createState() => _PostPageState();
+  _PostPageState createState() => _PostPageState(username, title, desc);
 }
 
 class _PostPageState extends State<PostPage> {
-  String username = "Firstname Lastname";
-  String title =
-      "A very long statement that actually is super long. Consider applying a flex factor to force the children";
-  String desc =
-      "Lots of text also belongs here because I think I should put a good number of characters to test how my app deals with it otherwise I'm sad";
-
+  String username;
+  String title;
+  String desc;
   String dropdownValue = "Top";
 
-  //_PostPageState({this.username, this.title, this.desc});
+  _PostPageState(String username, String title, String desc) {
+    this.username = username;
+    this.title = title;
+    this.desc = desc;
+  }
 
   final myController = TextEditingController();
 

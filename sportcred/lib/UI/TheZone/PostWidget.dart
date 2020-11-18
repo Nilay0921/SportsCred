@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportcred/UI/Post/PostPage.dart';
 import 'package:sportcred/models/global.dart';
 
 class PostWidget extends StatefulWidget {
@@ -36,13 +37,13 @@ class _PostWidgetState extends State<PostWidget> {
     int upvotes = (_toggled == true) ? widget.upvotes + 1 : widget.upvotes;
 
     return InkWell(
-      /*
       onTap: () {
-        if (connection == 'trivia') {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaHome()));
-        }
+        Navigator.push(context, MaterialPageRoute(builder: (context) => PostPage(
+          username: "Anonymous",
+          title: title,
+          desc: desc,
+        )));
       },
-      */
       child: Card(
         elevation: 0.0,
         color: Color(0x000000),
