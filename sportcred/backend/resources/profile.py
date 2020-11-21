@@ -1,40 +1,56 @@
 from flask_restful import Resource
-from flask import request
-from models import db, User, Profile
+from flask import request, Blueprint, jsonify
+from models import db, User, Profile, ACS
 
-class Profile(Resource):
-    def get(self):
-        header = request.headers["Authorization"]
+profileBp = Blueprint('profileBp', __name__)
+
+class userProfile(Resource):
+
+    @profileBp.route("/getProfile", methods=["GET"])
+    def getProfile():
         json_data = request.get_json(force=True)
 
-        if not header:
-            return {"Messege" : "No api key!"}, 400
+        user = User.query.filter_by(username=json_data['username']).first()
+        if not user:
+            return jsonify({"Message" : "User not found"}), 404
         else:
-            user = User.query.filter_by(api_key=header).first()
-            if user:
-                profile = Profile.query.filter_by(user_id=user.id).first()
-                if profile:
-                    return {"status": 'success', 'profile': profile}, 302
+            profile = Profile.query.filter_by(username=json_data['username']).first()
+            if not profile:
+                return jsonify({"Message" : "Profile not found"}), 404
+
+            acs = ACS.query.filter_by(username=user.username).first()
+            level = ''
+            if acs.score < 300:
+                level = 'fanalyst'
+            elif acs.score < 600:
+                level = 'analyst'
+            elif acs.score < 900:
+                level = 'proanalyst'
+            else:
+                level = 'expertanalyst'
+
+        profile = Profile.serialize(profile)
                 
-                return {"Message" : "profile not found"}, 404
-            return {"Message" : "user not found"}, 404
-        
-    def put(self):
+        return jsonify({"status": 'success', 'profile': profile , 'level': level}), 302
+                
+    @profileBp.route("/updateProfile", methods=["PUT"])
+    def updatetProfile():
         header = request.headers["Authorization"]
         json_data = request.get_json(force=True)
 
         if not header:
-            return {"Messege" : "No api key!"}, 400
+            return jsonify({"Messege" : "No api key!"}), 400
         else:
-            user = User.query.filter_by(api_key=header).first()
+            user = User.query.filter_by(username=header).first()
             if user:
-                profile = Profile.query.filter_by(user_id=user.id).first()
+                profile = Profile.query.filter_by(username=user.username).first()
                 if profile:
-                    profile.bio = json.data['bio']
-                    profile.profile_pic = json.data['profile_pic']
+                    profile.bio = json_data['bio']
+                    #profile.profile_pic = json_data['profile_pic']
                     db.session.commit()
-                    return { "status": 'success', 'profile': profile }, 200
+                    profile = Profile.serialize(profile)
+                    return jsonify({ "status": 'success', 'profile': profile }), 200
                 
-                return {"Message": "profile not found"}, 404
+                return jsonify({"Message": "profile not found"}), 404
                 
-            return {"Message" : "user not found"}, 404
+            return jsonify({"Message" : "user not found"}), 404
