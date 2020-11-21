@@ -18,14 +18,12 @@ class User(db.Model):
     email = db.Column(EmailType(), unique=True, nullable = False)
     password = db.Column(db.String)
     verification = db.Column(db.String(6), default = None, unique = False, nullable = True)
-    api_key = db.Column(db.String(), nullable = False)
-
-    def __init__(self, username, email, password, api_key):
+    
+    def __init__(self, username, email, password):
         self.username = username
         self.email = email
         self.password = password
-        self.api_key = api_key
-    
+        
     def __repr__(self):
         return '<id {}>'.format(self, id)
 
@@ -36,7 +34,6 @@ class User(db.Model):
             'email': self.email,
             'password': self.password,
             'verification': self.verification,
-            'api_key': self.api_key
         }
 
 class Profile(db.Model):
@@ -153,6 +150,32 @@ class Post(db.Model):
             'username': self.username,
             'title': self.title,
             'body': self.body,
+            'upvotes': self.upvotes
+        }
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer(), primary_key = True)
+    timestamp = db.Column(db.DateTime(), default=datetime.strftime(datetime.utcnow), index=True)
+    post_id = db.Column(db.Integer(), unique = False, nullable = False)
+    username = db.Column(db.Integer(), db.ForeignKey('users.username'), unique = True, nullable = False)
+    content = db.Column(db.String(), unique = False, nullable = False)
+    upvotes = db.Column(db.Integer(), default = 0, unique = False, nullable = False)
+    
+    def __init__(self, username, post_id, content):
+        self.username = username
+        self.post_id = post_id
+        self.content = content
+        
+    def __repr__(self):
+        return '<id {}>'.format(self, id)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'post_id': self.post_id,
+            'username': self.username,
+            'content': self.content,
             'upvotes': self.upvotes
         }
 
