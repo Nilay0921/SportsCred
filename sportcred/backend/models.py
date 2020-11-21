@@ -18,12 +18,12 @@ class User(db.Model):
     email = db.Column(EmailType(), unique=True, nullable = False)
     password = db.Column(db.String)
     verification = db.Column(db.String(6), default = None, unique = False, nullable = True)
-    
+
     def __init__(self, username, email, password):
         self.username = username
         self.email = email
         self.password = password
-        
+    
     def __repr__(self):
         return '<id {}>'.format(self, id)
 
@@ -125,6 +125,39 @@ class ACS(db.Model):
             'trivia_history': self.trivia_history,
             'daily_history': self.daily_history,
             'debate_history': self.debate_history
+        }
+
+class Trivia(db.Model):
+    __tablename__ = 'trivias'
+    id = db.Column(db.Integer(), primary_key = True)
+    sender_username = db.Column(db.Integer(), db.ForeignKey('users.username'), unique = False, nullable = False)
+    receiver_username = db.Column(db.Integer(), db.ForeignKey('users.username'), unique = False, nullable = False)
+    #id of all 11 questions sender answered
+    question_ids = db.Column(ScalarListType(), unique = False, nullable = False)
+    #for first 10 questions
+    sender_score = db.Column(db.Integer(), unique = False, nullable = False)
+    #time taken (-1 if answer incorrect) so if incorrect give full time to reciever
+    #incase reciever aalso answers incorrectly, then draw
+    sender_time = db.Column(db.Float(), unique = False, nullable = False)
+    
+    def __init__(self, sender_username, receiver_username, question_ids, sender_score, sender_time):
+        self.sender_username = sender_username
+        self.receiver_username = receiver_username
+        self.question_ids = question_ids
+        self.sender_score = sender_score
+        self.sender_time = sender_time
+    
+    def __repr__(self):
+        return '<id {}>'.format(self, id)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'sender_username': self.sender_username,
+            'receiver_username': self.receiver_username,
+            'question_ids': self.question_ids,
+            'sender_score': self.sender_score,
+            'sender_time': self.sender_time
         }
     
 class Post(db.Model):
