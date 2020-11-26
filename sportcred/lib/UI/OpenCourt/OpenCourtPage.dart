@@ -35,7 +35,8 @@ class OpenCourtPage extends StatelessWidget{
                   ),
                   CourtCardWidget(
                     title: 'Analyze',
-                    img: 'assets/images/analyze.png'
+                    img: 'assets/images/analyze.png',
+                    connection: 'analyze'
                   )
                 ],
               )

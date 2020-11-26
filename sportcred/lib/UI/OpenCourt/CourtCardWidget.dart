@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sportcred/UI/Trivia/TriviaHome.dart';
 import 'package:sportcred/UI/TheZone/TheZonePage.dart';
 import 'package:sportcred/models/global.dart';
+import 'package:sportcred/UI/Debate/DebateHome.dart';
 
 class CourtCardWidget extends StatelessWidget {
   final String title;
@@ -19,6 +20,8 @@ class CourtCardWidget extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaHome()));
         } else if (connection == 'zone'){ 
           Navigator.push(context, MaterialPageRoute(builder: (context) => TheZonePage()));
+        } else if (connection == 'analyze') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DebateHome()));
         }
       },
       child: Card(
