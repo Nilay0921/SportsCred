@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportcred/UI/Picks/PicksPage.dart';
 import 'package:sportcred/UI/Trivia/TriviaHome.dart';
 import 'package:sportcred/UI/TheZone/TheZonePage.dart';
 import 'package:sportcred/models/global.dart';
@@ -18,8 +19,10 @@ class CourtCardWidget extends StatelessWidget {
       onTap: () {
         if (connection == 'trivia') {
           Navigator.push(context, MaterialPageRoute(builder: (context) => TriviaHome()));
-        } else if (connection == 'zone'){ 
+        } else if (connection == 'zone') { 
           Navigator.push(context, MaterialPageRoute(builder: (context) => TheZonePage()));
+        } else if (connection == 'picks') {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PicksPage()));
         } else if (connection == 'analyze') {
           Navigator.push(context, MaterialPageRoute(builder: (context) => DebateHome()));
         }
