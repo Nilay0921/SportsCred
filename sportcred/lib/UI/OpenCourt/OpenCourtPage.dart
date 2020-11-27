@@ -26,7 +26,8 @@ class OpenCourtPage extends StatelessWidget{
                   ),
                   CourtCardWidget(
                     title: 'Picks',
-                    img: 'assets/images/picks.png'
+                    img: 'assets/images/picks.png',
+                    connection: 'picks',
                   ),
                   CourtCardWidget(
                     title: 'Trivia',
