@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       switch(index) { 
         case 0: { _title = 'Profile'; } 
         break; 
-        case 1: { _title = 'Home House'; } 
+        case 1: { _title = 'Home'; } 
         break;
         case 2: { _title = 'Live'; } 
         break;
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.sports),
-            label: 'Home House',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.live_tv_rounded),

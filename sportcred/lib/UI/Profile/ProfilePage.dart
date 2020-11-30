@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/models/global.dart';
-
+import 'package:sportcred/UI/Profile/PicksHistoryPage.dart';
+import 'package:sportcred/UI/Profile/ACSHistoryPage.dart';
 import '../../models/global.dart';
-import 'UpdateProfile.dart';
 
 class ProfilePage extends StatefulWidget{
   @override
@@ -135,48 +135,54 @@ class _ProfilePageState extends State<ProfilePage>{
                 children: <Widget>[
                   new Container(
                     padding: EdgeInsets.only(left:10.0),
-                    child: new Container(
-                      height: 60,
-                      width: 180,
-                      decoration: new BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: new BorderRadius.all(Radius.circular(20.0))
-                      ),
-                      child: Center(
-                        child: new Text(
-                          'Past Picks',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Lato',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black
-                          )
+                    child: new GestureDetector(
+                      onTap: _onItemTappedPicks,
+                      child: new Container(
+                        height: 60,
+                        width: 180,
+                        decoration: new BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: new BorderRadius.all(Radius.circular(20.0))
                         ),
-                      )
-                    ),
+                        child: Center(
+                          child: new Text(
+                            'Picks History',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Lato',
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black
+                            )
+                          ),
+                        )
+                      ),
+                    )
                   ),
                   new Container(
                     padding: EdgeInsets.only(left:20.0),
-                    child: new Container(
-                      height: 60,
-                      width: 180,
-                      decoration: new BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: new BorderRadius.all(Radius.circular(20.0))
-                      ),
-                      child: Center(
-                        child: new Text(
-                          'ACS History',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Lato',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black
-                          )
+                    child: new GestureDetector(
+                      onTap: _onItemTappedACS,
+                      child: new Container(
+                        height: 60,
+                        width: 180,
+                        decoration: new BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: new BorderRadius.all(Radius.circular(20.0))
                         ),
-                      )
+                        child: Center(
+                          child: new Text(
+                            'ACS History',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Lato',
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black
+                            )
+                          ),
+                        )
+                      ),
                     ),
                   )
                 ],
@@ -219,6 +225,14 @@ class _ProfilePageState extends State<ProfilePage>{
         ));
       }
     return list;
+  }
+
+  void _onItemTappedPicks(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PicksHistoryPage()));
+  }
+
+  void _onItemTappedACS(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ACSHistoryPage()));
   }
 
   void _onItemTapped() {
