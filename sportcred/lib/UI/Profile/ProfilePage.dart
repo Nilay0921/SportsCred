@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sportcred/UI/ACS/ACSWidget.dart';
 import 'package:sportcred/models/global.dart';
-
-import '../../models/global.dart';
-import 'UpdateProfile.dart';
 
 class ProfilePage extends StatefulWidget{
   @override
@@ -166,18 +164,21 @@ class _ProfilePageState extends State<ProfilePage>{
                         borderRadius: new BorderRadius.all(Radius.circular(20.0))
                       ),
                       child: Center(
-                        child: new Text(
-                          'ACS History',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Lato',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black
-                          )
-                        ),
-                      )
-                    ),
+                        child: new TextButton(
+                          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ACSWidget())),
+                          child: Text (
+                            'ACS Breakdown',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'Lato',
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black
+                            )
+                          ),
+                        )
+                      ),
+                    )
                   )
                 ],
               ),
