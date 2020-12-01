@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sportcred/UI/ACS/ACSWidget.dart';
 import 'package:sportcred/models/global.dart';
 import 'package:sportcred/UI/Profile/PicksHistoryPage.dart';
-import 'package:sportcred/UI/Profile/ACSHistoryPage.dart';
 import '../../models/global.dart';
 
 class ProfilePage extends StatefulWidget{
@@ -172,7 +172,7 @@ class _ProfilePageState extends State<ProfilePage>{
                         ),
                         child: Center(
                           child: new Text(
-                            'ACS History',
+                            'ACS Breakdown',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'Lato',
@@ -232,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage>{
   }
 
   void _onItemTappedACS(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ACSHistoryPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ACSWidget()));
   }
 
   void _onItemTapped() {

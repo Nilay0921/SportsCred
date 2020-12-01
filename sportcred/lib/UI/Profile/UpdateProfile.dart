@@ -1,32 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:sportcred/models/global.dart';
-import 'package:sportcred/UI/Profile/ProfilePage.dart';
 
 class UpdateProfile extends StatefulWidget {
   const UpdateProfile({Key key}) : super(key: key);
   @override
   _UpdateProfileState createState() => _UpdateProfileState();
-  // For later usage: State<StatefulWidget> createState() => _UpdateProfileState();
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
-  /* For validation --
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final GlobalKey<FormFieldState<String>> _passwordFieldKey = GlobalKey<FormFieldState<String>>();
-  bool _autoValidate = false;
-  String _name;
-  String _username;
-  String _email;
-  String _password;
-   */
   bool showPassword = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.backgroundGray,
       appBar: AppBar(
         title: Text('Edit Profile'),
-        //backgroundColor: Colors.grey[800],
         centerTitle: true,
         leading: IconButton(
             icon: Icon(
@@ -51,7 +40,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
       ),
       body: Container(
         padding: EdgeInsets.only(left: 40, top: 40, right: 40),
-        color: AppTheme.backgroundGray,
+        //color: AppTheme.backgroundGray,
         child: ListView(
           children: [
             Center(
@@ -88,7 +77,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                         width: 30,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(width: 2, color: Colors.white),
+                          border: Border.all(width: 1, color: Colors.black),
                           color: Colors.green,
                         ),
                         child: Icon(
@@ -108,6 +97,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 // TO DO: validator
                 decoration: InputDecoration (
                     labelText: 'Name',
+                    labelStyle: TextStyle(color: Colors.white),
                     hintText: 'Guy Fawkes',
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     hintStyle: TextStyle(fontSize:15, color: Colors.white)
@@ -124,6 +114,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     labelText: 'Username',
                     hintText: 'guy_fawkes',
                     floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelStyle: TextStyle(color: Colors.white),
                     hintStyle: TextStyle(fontSize:15, color: Colors.white)
                 ),
               ),
@@ -138,6 +129,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     labelText: 'Email',
                     hintText: 'guyfawkes@gmail.com',
                     floatingLabelBehavior: FloatingLabelBehavior.always,
+                    labelStyle: TextStyle(color: Colors.white),
                     hintStyle: TextStyle(fontSize:15, color: Colors.white)
                 ),
               ),
@@ -152,6 +144,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 // TO DO: validator
                 decoration: InputDecoration (
                     labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.white),
                     //hintText: '*********',
                     //floatingLabelBehavior: FloatingLabelBehavior.always,
                     suffixIcon: IconButton(
@@ -169,13 +162,11 @@ class _UpdateProfileState extends State<UpdateProfile> {
             OutlinedButton(
                 child: Text('Submit', style: TextStyle(color: Colors.green, backgroundColor: Colors.white)),
                 style: OutlinedButton.styleFrom(
-               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-               backgroundColor: Colors.white,
-               side: BorderSide(width: 1, color: Colors.green),
-              ),
-
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+                  backgroundColor: Colors.white,
+                  side: BorderSide(width: 1, color: Colors.green),
+                ),
                 onPressed: () {
-                  //if (_formKey.currentState.validate()) {}
                   Navigator.pop(context);
                 }
             )
