@@ -6,8 +6,6 @@ class HistoryWidget extends StatelessWidget {
 
   HistoryWidget({this.activity, this.change});
 
-  /// TO DO: spruce up this view (look into SlideCard)!
-
   @override
   Widget build(BuildContext context) {
     bool increase = true;
@@ -22,7 +20,7 @@ class HistoryWidget extends StatelessWidget {
         child: ListTile(
             contentPadding: EdgeInsets.all(10.0),
             title: Text(
-                activity,
+                activity.split(" ")[0],
                 style: TextStyle(
                   fontFamily: 'Lato',
                   fontSize: 17,

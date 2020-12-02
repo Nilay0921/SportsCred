@@ -13,14 +13,29 @@ class ACSWidget extends StatelessWidget {
   double debateScore = 0;
   double picksScore = 0;
   double participationScore = 0;
-  List<String> history = [];
+  List<String> triviaHistory = [];
+  List<String> debateHistory = [];
+  List<String> picksHistory = [];
+  List<String> participationHistory = [];
 
   double getACS() {
     return newACS;
   }
 
-  List<String> getHistory() {
-    return history;
+  List<String> getTriviaHistory() {
+    return triviaHistory;
+  }
+
+  List<String> getDebateHistory() {
+    return debateHistory;
+  }
+
+  List<String> getPicksHistory() {
+    return picksHistory;
+  }
+
+  List<String> getParticipationHistory() {
+    return participationHistory;
   }
 
   double getTriviaScore(double change) {
@@ -84,18 +99,21 @@ class ACSWidget extends StatelessWidget {
     if (connection == 'trivia') {
       change = 0.1 * points;
       triviaScore = getTriviaScore(change);
+      triviaHistory.insert(0, '$change');
     } else if (connection == 'debate') {
       change = 0.3 * points;
       debateScore = getDebateScore(change);
+      debateHistory.insert(0, '$change');
     } else if (connection == 'picks') {
       change = 0.5 * points;
       picksScore = getPicksScore(change);
+      picksHistory.insert(0, '$change');
     } else if (connection == 'participation') {
       change = 0.1 * points;
       participationScore = getParticipationScore(change);
+      participationHistory.insert(0, '$change');
     }
     newACS+=change;
-    history.insert(0, '$connection $change');
   }
 
 @override
@@ -108,6 +126,39 @@ class ACSWidget extends StatelessWidget {
   myACS.updateACS('participation', 25);
   myACS.updateACS('trivia', -2);
   myACS.updateACS('picks', 30);
+
+  OutlinedButton historyButton(String activity) {
+    return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.black,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0)
+          ),
+        ),
+        onPressed: () {
+          List<String> history;
+          if (activity == 'Trivia History') {
+            history = myACS.getTriviaHistory();
+          } else if (activity == 'Debate History') {
+            history = myACS.getDebateHistory();
+          } else if (activity == 'Picks History') {
+            history = myACS.getPicksHistory();
+          } else if (activity == 'Participation History') {
+            history = myACS.getParticipationHistory();
+          }
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ACSHistory(activityTitle: activity, history: history)));
+        },
+        child: Text(
+          activity,
+          style: TextStyle(
+              fontFamily: 'Lato',
+              fontSize: 15.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w300
+          )
+        )
+    );
+  }
 
     return Scaffold(
       backgroundColor: AppTheme.backgroundGray,
@@ -122,22 +173,38 @@ class ACSWidget extends StatelessWidget {
             fontSize: 20
           ),
         ),
-        actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.more_horiz),
-              color: Colors.white,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ACSHistory(history: myACS.getHistory())));
-              }
-            )
-          ]
       ),
-      body: _getCustomizedRadialBarChart(myACS)
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child:_getACSChart(myACS),
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: GridView.count(
+                //physics: NeverScrollableScrollPhysics(),
+                childAspectRatio: 3,
+                crossAxisCount: 2,
+                mainAxisSpacing: 15.0,
+                crossAxisSpacing: 15.0,
+                children: [
+                  historyButton('Trivia History'),
+                  historyButton('Picks History'),
+                  historyButton('Debate History'),
+                  historyButton('Participation History'),
+                ],
+              )
+            )
+          )
+        ]
+      )
     );
   }
 
-  ///Radial bar chart from Syncfusion
-  SfCircularChart _getCustomizedRadialBarChart(ACSWidget myACS) {
+  ///Doughnut chart from Syncfusion
+  SfCircularChart _getACSChart(ACSWidget myACS) {
     List<Color> colors = <Color>[
       Colors.green[100],
       Colors.green[300],
@@ -145,91 +212,106 @@ class ACSWidget extends StatelessWidget {
       Colors.green[900],
     ];
     return SfCircularChart(
+      title: ChartTitle(
+        text: 'A.C.S: ${myACS.newACS.round()}',
+        textStyle: TextStyle(
+            fontFamily: 'Lato',
+            fontSize: 18.0,
+            fontStyle: FontStyle.italic,
+            color: Colors.white,
+            fontWeight: FontWeight.w600
+        )
+      ),
       legend: Legend(
         isVisible: true,
         overflowMode: LegendItemOverflowMode.wrap,
+        position: LegendPosition.bottom,
         legendItemBuilder: (String name, dynamic series, dynamic point, int index) {
           return Container(
-            height: 30,
-            width: 325,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                      '${point.x}',
-                      style: TextStyle(
-                        color: colors[index],
-                        fontSize: 18,
-                        fontFamily: 'Lato',
-                      )
-                  ),
-                  Text(
-                      '${point.y}%',
-                      style: TextStyle(
-                        color: colors[index],
-                        fontSize: 15,
-                        fontFamily: 'Lato',
-                      )
-                  )
-                ]
-            )
+              alignment: Alignment.center,
+              height: 30,
+              width: 300,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                        '${point.x}',
+                        style: TextStyle(
+                          color: colors[index],
+                          fontSize: 18,
+                          fontFamily: 'Lato',
+                        )
+                    ),
+                    Text(
+                        '${point.y}%',
+                        style: TextStyle(
+                          color: colors[index],
+                          fontSize: 15,
+                          fontFamily: 'Lato',
+                        )
+                    )
+                  ]
+              )
           );
-        },
+        }
       ),
-      series: _getRadialBarCustomizedSeries(myACS), 
       annotations: <CircularChartAnnotation>[
         CircularChartAnnotation(
           radius: '0%',
-          height: '90%',
-          width: '90%',
+          height: '100%',
+          width: '100%',
           widget: CircleAvatar(
-            backgroundImage: NetworkImage('https://cdn.vox-cdn.com/thumbor/7XTizfDBsdR0oSDhhGHyTAD5cSc=/11x0:628x411/1200x800/filters:focal(11x0:628x411)/cdn.vox-cdn.com/assets/945137/anonymous.jpg')
-          ),
+              backgroundImage: NetworkImage('https://cdn.vox-cdn.com/thumbor/7XTizfDBsdR0oSDhhGHyTAD5cSc=/11x0:628x411/1200x800/filters:focal(11x0:628x411)/cdn.vox-cdn.com/assets/945137/anonymous.jpg')
+            ),
         ),
       ],
+      series: _getACSSeries(myACS)
     );
   }
 
-  List<RadialBarSeries<ACSSection, String>> _getRadialBarCustomizedSeries(ACSWidget myACS) {
+  List<DoughnutSeries<ACSSection, String>> _getACSSeries(ACSWidget myACS) {
     final List<ACSSection> chartData = <ACSSection>[
       ACSSection(
           title: 'Trivia',
           percentage: myACS.getTriviaPercentage(),
-          text: '100%',
+          score: myACS.triviaScore.toStringAsFixed(1),
           pointColor: Colors.green[100]
       ),
       ACSSection(
           title: 'Picks and Predictions',
           percentage: myACS.getPicksPercentage(),
-          text: '100%',
+          score: myACS.picksScore.toStringAsFixed(1),
           pointColor: Colors.green[300]
       ),
       ACSSection(
-          title: 'Analysis and Debates',
+          title: 'Analyses/Debates',
           percentage: myACS.getDebatePercentage(),
-          text: '100%',
+          score: myACS.debateScore.toStringAsFixed(1),
           pointColor: Colors.green[600]
       ),
       ACSSection(
-          title: 'Participation and History',
+          title: 'Participation',
           percentage: myACS.getParticipationPercentage(),
-          text: '100%',
+          score: myACS.participationScore.toStringAsFixed(1),
           pointColor: Colors.green[900]
       )
     ];
-    return <RadialBarSeries<ACSSection, String>>[
-      RadialBarSeries<ACSSection, String>(
-        maximumValue: 100,
-        gap: '10%',
+    return <DoughnutSeries<ACSSection, String>>[
+      DoughnutSeries<ACSSection,String>(
         radius: '100%',
         dataSource: chartData,
-        cornerStyle: CornerStyle.bothCurve,
-        innerRadius: '50%',
         xValueMapper: (ACSSection data, _) => data.title,
         yValueMapper: (ACSSection data, _) => data.percentage,
-        pointRadiusMapper: (ACSSection data, _) => data.text,
+        dataLabelMapper: (ACSSection data, _) => data.score,
         pointColorMapper: (ACSSection data, _) => data.pointColor,
-      ),
+        dataLabelSettings: DataLabelSettings(
+          isVisible: true,
+          textStyle: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Lato',
+          )
+        )
+      )
     ];
   }
 }
