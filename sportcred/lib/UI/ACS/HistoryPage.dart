@@ -3,23 +3,27 @@ import 'package:sportcred/models/global.dart';
 import 'package:sportcred/UI/ACS/HistoryWidget.dart';
 
 class ACSHistory extends StatelessWidget {
+  final String activityTitle;
   final List<String> history;
 
-  ACSHistory({this.history});
+  ACSHistory({this.activityTitle, this.history});
 
   @override
   Widget build(BuildContext context){
+    /*
+    not needed if BE has a separate list for each ACS-altering activity
     List<String> getActivity(history) {
       List<String> activity = history.toString().split(" ");
       return activity;
     }
+     */
 
     return Scaffold(
       backgroundColor: AppTheme.backgroundGray,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'ACS History',
+          activityTitle,
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w400,
@@ -39,10 +43,10 @@ class ACSHistory extends StatelessWidget {
                   itemCount: history.length,
                   padding: EdgeInsets.all(10.0),
                   itemBuilder: (BuildContext context, int index) {
-                    List<String> parts = getActivity(history.elementAt(index));
+                    //List<String> parts = getActivity(history.elementAt(index));
                     return HistoryWidget(
-                        activity: parts.elementAt(0),
-                        change: parts.elementAt(1)
+                        activity: activityTitle,
+                        change: history.elementAt(index)
                     );
                   }
                 )
