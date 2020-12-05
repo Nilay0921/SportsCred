@@ -1,0 +1,109 @@
+[
+  {
+    "1": "Who is the only other player other than Jamal Murray to score 50 on fewer than 24 field goal attempts?",
+    "2": "Who are the two players to have 25 point halves in a single playoff series?",
+    "3": "*Who was the NBA’s first ever unanimous MVP?",
+    "4": "Who scored the NBA's first ever three pointer and in what year?",
+    "5": "*Who was the youngest player to score 10,000 points?",
+    "6": "Who did the Los Angeles Lakers draft twice?",
+    "7": "*Who scored the most points in a single NBA game?",
+    "8": "*What team has the worst W-L percentage in NBA history?",
+    "9": "*Who has the most Finals MVP’s?",
+    "10": "*What franchise has the most HOF’s to date?",
+    "11": "Who was the lowest seeded team to win an NBA championship?",
+    "12": "*What was the name of Toronto’s first NBA team?",
+    "13": "*Who are the only two players in NBA history to average a triple double in a single season?"
+  },
+  {
+    "1": {
+      "optionA": "Bob Cousey",
+      "optionB": "Michael Jordan",
+      "optionC": "Lebron James",
+      "optionD": "Kareem Abdul Jabbar"
+    },
+    "2": {
+      "optionA": "Jamal Murray/Allen Iverson",
+      "optionB": "James Harden/Russel Westbrook",
+      "optionC": "Michael Jordan/Kobe Bryant",
+      "optionD": "Steph Curry/Lebron James"
+    },
+    "3": {
+      "optionA": "Steph Curry",
+      "optionB": "Michael Jordan",
+      "optionC": "Shaquille O'Neal",
+      "optionD": "LeBron James"
+    },
+    "5": {
+      "optionA": "LeBron James",
+      "optionB": "Kobe Bryant",
+      "optionC": "Michael Jordan",
+      "optionD": "Kevin Durant"
+    },
+    "7": {
+      "optionA": "Wilt Chamberlain",
+      "optionB": "Kobe Bryant",
+      "optionC": "James Harden",
+      "optionD": "Michael Jordan"
+    },
+    "8": {
+      "optionA": "Minnesota Timberwolves",
+      "optionB": "Phoenix Suns",
+      "optionC": "Cleveland Cavaliers",
+      "optionD": "New York Knicks"
+    },
+    "9": {
+      "optionA": "Michael Jordan",
+      "optionB": "Kareem Abdul Jabbar",
+      "optionC": "Magic Johnson",
+      "optionD": "Shaquille O'Neal"
+    },
+    "10": {
+      "optionA": "Boston Celtics",
+      "optionB": "Los Angeles Lakers",
+      "optionC": "Chicago Bulls",
+      "optionD": "San Antonio Spurs"
+    },
+    "12": {
+      "optionA": "Toronto Huskies",
+      "optionB": "Toronto Raptors",
+      "optionC": "Toronto Knickerbokers",
+      "optionD": "Toronto Grizzlies"
+    },
+    "13": {
+      "optionA": "Oscar Robertson/Russell Westbrook",
+      "optionB": "Oscar Robertson/LeBron James",
+      "optionC": "Magic Johnson/Russel Westbrook",
+      "optionD": "Luka Doncic/James Harden"
+    }
+  },
+  {
+    "1": "Bob Cousey",
+    "2": "Jamal Murray/Allen Iverson",
+    "3": "Steph Curry",
+    "4": "Chris Ford, 1979",
+    "5": "LeBron James",
+    "6": "Elgin Baylor",
+    "7": "Wilt Chamberlain",
+    "8": "Minnesota Timberwolves",
+    "9": "Michael Jordan",
+    "10": "Boston Celtics",
+    "11": "Houston Rockets 94-95 - 6 seed",
+    "12": "Toronto Huskies",
+    "13": "Oscar Robertson/Russell Westbrook"
+  },
+  {
+    "1": "multiple",
+    "2": "multiple",
+    "3": "multiple",
+    "4": "fill",
+    "5": "multiple",
+    "6": "fill",
+    "7": "multiple",
+    "8": "multiple",
+    "9": "multiple",
+    "10": "multiple",
+    "11": "fill",
+    "12": "multiple",
+    "13": "multiple"
+  }
+]

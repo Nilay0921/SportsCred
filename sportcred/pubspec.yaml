@@ -24,7 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  simple_timer: ^1.0.1
+  
+  intl: ^0.16.1
 
+  syncfusion_flutter_charts: ^18.3.51
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
@@ -45,9 +50,21 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+   - assets/images/placeholder.png
+   - assets/images/Logo.png
+   - assets/images/sportcredLogo.png
+   - assets/images/openCourt.png
+   - assets/images/picks.png
+   - assets/images/trivia.png
+   - assets/images/analyze.png
+   - assets/images/soloPlayer.jpg
+   - assets/images/jumpBall.jpg
+   - assets/images/logo_centered_darkbg.png
+   - assets/trivia.json
+   - assets/images/greenPlus.png
+   - assets/images/empty user.png
+   - assets/images/TorontoRaptors.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -60,17 +77,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Light.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+        - asset: assets/fonts/Lato-Thin.ttf
+        - asset: assets/fonts/Lato-ThinItalic.ttf
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
