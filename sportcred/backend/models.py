@@ -231,3 +231,23 @@ class Analytic(db.Model):
             'username': self.username,
             'answers': self.answers
         }
+
+class Pick(db.Model):
+    __tablename__ = 'picks'
+    id = db.Column(db.Integer(), primary_key = True)
+    username = db.Column(db.Integer(), db.ForeignKey('users.username'), unique = True, nullable = True)
+    picks = db.Column(ScalarListType(), nullable = False)
+
+    def __init__(self, username, picks):
+        self.username = username
+        self.answers = picks
+    
+    def __repr__(self):
+        return '<id {}>'.format(self, id)
+    
+    def serialize(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'answers': self.picks
+        }
